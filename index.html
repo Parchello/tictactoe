@@ -3,7 +3,64 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Tic-Tac-Toe</title>
   </head>
-  <body></body>
+  <body>
+    <h1>Tic-Tac-Toe</h1>
+
+    <div>
+      <p id="userCont">You: <span id="user"></span></p>
+      <p id="opponentCont">Opponent: <span id="oppName"></span></p>
+    </div>
+
+    <br />
+    <p id="valueCont">You are plaing as <span id="value"></span></p>
+    <br />
+
+    <p id="whosTurn">X,s Turn</p>
+    <div>
+      <p id="enterName">Enter Your name</p>
+      <input
+        type="text"
+        placeholder="Enter name"
+        id="name"
+        autocomplete="off"
+      />
+    </div>
+
+    <button id="find">Search for player</button>
+    <p id="loading">Serching for player....</p>
+
+    <div id="bigContainer">
+      <div>
+        <button id="btn1" class="btn"></button>
+        <button id="btn2" class="btn"></button>
+        <button id="btn3" class="btn"></button>
+        <button id="btn4" class="btn"></button>
+        <button id="btn5" class="btn"></button>
+        <button id="btn6" class="btn"></button>
+        <button id="btn7" class="btn"></button>
+        <button id="btn8" class="btn"></button>
+        <button id="btn9" class="btn"></button>
+      </div>
+    </div>
+    <script src="logic.js"></script>
+    <script>
+      document.getElementById("bigContainer").style.display = "none";
+      document.getElementById("valueCont").style.display = "none";
+      document.getElementById("userCont").style.display = "none";
+      document.getElementById("opponentCont").style.display = "none";
+      document.getElementById("whosTurn").style.display = "none";
+      document.getElementById("loading").style.display = "none";
+
+      const socket = io();
+      let name;
+      document.getElementById("find").addEventListener("click", function () {
+        name = document.getElementById("name").value;
+        console.log(name);
+
+        document.getElementById("user").innerText = name;
+      });
+    </script>
+  </body>
 </html>
